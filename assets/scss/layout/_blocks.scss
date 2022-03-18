@@ -1,0 +1,7 @@
+.blocks {
+    &__image-left-text-right,
+    &__text-left-image-right {
+        @include col-grow-image;
+        overflow: hidden;
+    }
+}

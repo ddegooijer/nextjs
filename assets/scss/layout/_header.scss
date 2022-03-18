@@ -1,0 +1,146 @@
+.header {
+    position: relative;
+    overflow: hidden;
+    min-height: 75vh;
+    padding-block: 8rem;
+
+    @include media-breakpoint-up(lg) {
+        padding-block: 11rem;
+    }
+
+    &__homepage,
+    &__branch-page {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        padding-block: 0;
+
+        @include media-breakpoint-up(lg) {
+            height: auto;
+            min-height: 90vh;
+        }
+
+        .inner {
+            flex-grow: 1;
+            background-color: var(--color-background);
+
+            @include media-breakpoint-up(lg) {
+                display: flex;
+            }
+
+            > .container {
+                @include media-breakpoint-up(lg) {
+                    flex-grow: 1;
+                    height: auto;
+                }
+            }
+        }
+
+        > .jagged-shape {
+            @include media-breakpoint-up(lg) {
+                display: none;
+            }
+        }
+
+        .text-wrapper {
+            position: relative;
+            transform: translateY(-2rem);
+            flex-shrink: 0;
+            z-index: 10;
+
+            @include media-breakpoint-up(lg) {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding-block: 8rem;
+                transform: none;
+            }
+        }
+
+        .image-wrapper {
+            position: relative;
+
+            @include media-breakpoint-between(sx, lg) {
+                flex-grow: 1;
+                flex-shrink: 1;
+                width: 100vw;
+                max-width: none;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            @include media-breakpoint-up(lg) {
+                > div {
+                    display: flex;
+                    height: 100%;
+
+                    @each $viewport, $containerwidth in $container-max-widths {
+                        @include media-breakpoint-only($viewport) {
+                            width: calc(100% + #{$grid-gutter-width} / 3 + ((100vw - #{$containerwidth}) / 2));
+                        }
+                    }
+                }
+            }
+
+            img {
+                height: 100%;
+                position: absolute;
+
+                @include media-breakpoint-up(lg) {
+                    position: unset;
+                }
+            }
+
+            .jagged-shape {
+                position: absolute;
+                bottom: -1px;
+                transform: rotate(180deg);
+
+                @include media-breakpoint-up(lg) {
+                    display: none;
+                }
+
+                &__vertical {
+                    display: none;
+
+                    @include media-breakpoint-up(lg) {
+                        display: block;
+                        bottom: 0;
+                        left: 0;
+                        transform: rotate(180deg) scaleX(-1);
+                        height: 100%;
+                    }
+                }
+            }
+        }
+
+        .logo-slider {
+            margin-top: 4.5rem;
+        }
+    }
+
+    &__with-image {
+        min-height: 0;
+        height: 50vh;
+        display: flex;
+        padding: 0;
+
+        .jagged-shape {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: auto;
+        }
+
+        picture {
+            width: 100%;
+            height: 100%;
+        }
+
+        img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}

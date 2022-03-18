@@ -1,0 +1,57 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    &:before,
+    &:after {
+        box-sizing: border-box;
+    }
+}
+
+//body {
+//    overflow-x: hidden;
+//}
+
+ul {
+    margin: 0;
+
+    li {
+        padding: 0;
+    }
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+figure {
+    margin: 0;
+}
+
+button {
+    appearance: none;
+    background: none;
+    padding: 0;
+    outline: none;
+    border: 0;
+    cursor: pointer;
+}
+
+hr {
+    opacity: 0.1;
+    border-width: 0;
+    border-top-width: 1px;
+}
+
+:focus {
+    outline: none;
+}
+
+:focus-visible {
+    outline: 2px dashed var(--color-primary);
+    outline-offset: -0.5px;
+    box-shadow: 0 0 0 2px var(--color-white);
+}

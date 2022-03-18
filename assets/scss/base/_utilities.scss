@@ -1,0 +1,144 @@
+// White text/dia positive
+.dark-theme {
+    @include dark-theme;
+}
+
+// Hide element, show on screenreaders
+.visually-hidden {
+    @include visually-hidden;
+}
+
+// Height/width
+.h-100 {
+    height: 100%;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+// Spacing
+.section-spacing-margin {
+    @include section-spacing-margin;
+}
+
+.section-spacing-padding {
+    @include section-spacing-padding;
+}
+
+// Text Stroke
+.text-stroke-primary {
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: var(--color-primary);
+}
+
+// Text transform
+.text-uppercase {
+    text-transform: uppercase;
+}
+
+// Text align
+.text-center {
+    text-align: center;
+}
+
+// Text decoration
+.text-decoration-none {
+    text-decoration: none !important;
+}
+
+// Font style
+.font-style-italic {
+    font-style: italic;
+}
+
+// Color
+.color-transparent {
+    color: transparent;
+}
+
+.color-gray {
+    color: var(--color-gray);
+}
+
+.color-text {
+    color: var(--color-text);
+}
+
+.color-primary {
+    color: var(--color-primary);
+}
+
+// Font family
+.font-family-titles {
+    font-family: var(--font-family-titles);
+    letter-spacing: 1px;
+}
+
+// Font weight
+.font-weight-bold {
+    font-weight: var(--font-weight-bold);
+}
+
+.font-weight-base {
+    font-weight: var(--font-weight-base);
+}
+
+// Opacity
+.opacity-50 {
+    opacity: 0.5;
+}
+
+.opacity-80 {
+    opacity: 0.8;
+}
+
+// Positions
+.position-absolute {
+    position: absolute;
+}
+
+.position-relative {
+    position: relative;
+}
+
+.position-sticky {
+    position: static;
+    top: 10vh;
+
+    @include media-breakpoint-up(lg) {
+        position: sticky;
+    }
+}
+
+// Image
+.object-fit-cover {
+    object-fit: cover;
+}
+
+// List style
+.list-style-none {
+    list-style: none;
+
+    &:not(.row) {
+        li {
+            padding: 0;
+        }
+    }
+
+    li {
+        &:before {
+            content: none;
+        }
+    }
+}
+
+// Aspect ratio
+.aspect-ratio-square {
+    aspect-ratio: 1/1;
+}
+
+// Overflow
+.overflow-hidden {
+    overflow: hidden;
+}

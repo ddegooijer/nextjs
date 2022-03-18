@@ -1,0 +1,18 @@
+nav {
+    ul {
+        list-style: none;
+
+        li {
+            padding: 0;
+
+            &:before {
+                content: none;
+            }
+
+            a:not(.btn),
+            button:not(.btn) {
+                text-decoration: none;
+            }
+        }
+    }
+}

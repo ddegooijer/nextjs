@@ -1,0 +1,17 @@
+.col-grow {
+    &__left > div {
+        float: right;
+    }
+
+    & > div {
+        display: flex;
+        height: 100%;
+        width: calc(100% + math.div($grid-gutter-width,2));
+
+        @each $viewport, $containerwidth in $container-max-widths {
+            @include media-breakpoint-only($viewport) {
+                width: calc(100% + #{$grid-gutter-width}/3 + ((100vw - #{$containerwidth}) / 2));
+            }
+        }
+    }
+}

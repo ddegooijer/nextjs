@@ -1,0 +1,45 @@
+/*
+  EF2 default SCSS kit
+*/
+@use "sass:math";
+@use "sass:list";
+
+@import "abstracts/variables";
+@import '../../node_modules/bootstrap-scss/bootstrap-grid';
+
+// Abstracts
+@import "abstracts/mixins";
+@import "abstracts/mixins-typography";
+
+// Base
+@import "base/reset";
+@import "base/typography";
+
+@import "base/animations";
+@import "base/utilities";
+@import "base/col-grow";
+@import "base/masks";
+
+
+//
+//// Components
+//@import "components/cta";
+//@import "components/lottie";
+//@import "components/form";
+//@import "components/accordion";
+//@import "components/menu-toggle";
+//@import "components/avatar";
+//@import "components/filters";
+//@import "components/insights";
+//@import "components/case";
+//@import "components/jagged-shape";
+//
+//// Layout
+//@import "layout/navigation";
+//@import "layout/header";
+//@import "layout/blocks";
+//@import "layout/sliders";
+//
+//// Vendor
+//@import "vendor/swiper";
+//@import "vendor/headroom";

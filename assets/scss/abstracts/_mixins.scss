@@ -1,0 +1,212 @@
+/*
+    Element centering
+*/
+// Centers an element
+@mixin center-absolute {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+
+// Centers an element vertically
+@mixin center-absolute-Y {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+
+// Centers an element horizontally
+@mixin center-absolute-X {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/*
+    Overlays and backgrounds
+*/
+
+// Places an overlay over the element. Fills the whole element.
+@mixin coloroverlay($color, $opacity: .4) {
+    position: relative;
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: $color;
+        opacity: $opacity;
+        z-index: -1;
+    }
+}
+
+// Fills background outside bootstrap container
+@mixin full-width-background($color: var(--color-primary)) {
+    position: relative;
+    z-index: 0;
+
+    &:before {
+        content: '';
+        @include center-absolute-X;
+        top: 0;
+        bottom: 0;
+        width: 100vw;
+        background-color: $color;
+        z-index: -1;
+    }
+}
+
+// Stretch an absolute item from top to bottom, left to right
+@mixin fill-absolute-item {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+/*
+    Accessibility
+*/
+
+// Hides an element but still visible on screenreaders
+@mixin visually-hidden {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    width: 1px;
+    height: 1px;
+    word-wrap: normal;
+
+    &.focusable:focus {
+        position: static !important;
+        overflow: visible;
+        clip: auto;
+        width: auto;
+        height: auto;
+    }
+}
+
+// Accessibility icons
+@mixin icon($icon-name: 'arrow-right', $icon-size: 1em, $icon-color: var(--color-primary)) {
+    content: '';
+    mask: url('~/assets/icons/#{$icon-name}.svg') no-repeat 50% 50%;
+    mask-size: contain;
+    mask-position: right;
+    display: inline-block;
+    height: $icon-size;
+    width: $icon-size;
+    background-color: $icon-color;
+    transition: var(--transition-hover);
+}
+
+/*
+    Spacing
+*/
+
+// Default padding spacing in content blocks
+@mixin section-spacing-margin {
+    margin-block: clamp(4rem, 13vh + 1rem, 20vh);
+}
+
+// Default padding spacing in content blocks
+@mixin section-spacing-padding {
+    padding-block: 6rem;
+
+    @include media-breakpoint-up(md) {
+        padding-block: 9.5rem;
+    }
+}
+
+// Container max-widths
+@mixin make-container-max-widths($max-widths: $container-max-widths, $breakpoints: $grid-breakpoints) {
+    @each $breakpoint, $container-max-width in $max-widths {
+        @include media-breakpoint-up($breakpoint, $breakpoints) {
+            max-width: $container-max-width;
+        }
+    }
+}
+
+/*
+    Extra
+*/
+
+// Dark theme
+@mixin dark-theme {
+    color: var(--color-white);
+
+    a:not(.btn),
+    button:not(.btn) {
+        color: var(--color-white);
+
+        &:hover,
+        &:focus {
+            color: var(--color-primary);
+        }
+    }
+
+    .btn.btn-link {
+        --btn-link-color: var(--color-white-rgb);
+    }
+}
+
+// List with arrows as list-style
+@mixin list-arrows {
+    li {
+        &:before {
+            @include icon($icon-name: 'arrow', $icon-size: 0.7em);
+            top: 0.45em;
+        }
+    }
+}
+
+@mixin col-grow-image {
+    .text-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 3rem;
+
+        @include media-breakpoint-up(lg) {
+            min-height: 80vh;
+            padding-top: 0;
+        }
+    }
+
+    .image-mask {
+        height: 50vh;
+
+        @include media-breakpoint-up(lg) {
+            height: 80vh;
+        }
+
+        picture {
+            width: 100%;
+            height: 100%;
+        }
+
+        img {
+            width: calc(100% + 100px);
+            height: calc(100% + 100px);
+        }
+    }
+}
+
+/*
+    Animations
+*/
+
+@mixin animation-slide-in($slide-direction: left) {
+    transform: translateX(var(--animation-image-slide-in-distance));
+    opacity: 0;
+
+    @if $slide-direction == right {
+        transform: translateX(var(--animation-image-slide-in-distance-negative));
+    }
+}

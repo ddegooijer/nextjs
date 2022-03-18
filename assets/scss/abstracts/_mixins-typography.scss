@@ -1,0 +1,79 @@
+// Responsive font-size
+@mixin font-size-clamp($min-font-size, $value-font-size, $max-font-size) {
+    font-size: $min-font-size; // Fallback
+
+    @include media-breakpoint-up(sm) {
+        font-size: $max-font-size; // Fallback
+        font-size: clamp(#{$min-font-size}, calc(#{$value-font-size} + 1rem), #{$max-font-size});
+    }
+}
+
+@mixin heading-style {
+    font-weight: var(--font-weight-bold);
+    font-style: normal;
+    letter-spacing: -1px;
+}
+
+@mixin h1 {
+    @include font-size-clamp(2.5rem, 4vw, 4.5rem);
+    @include heading-style;
+    line-height: 0.95;
+}
+
+@mixin h2 {
+    @include font-size-clamp(2.25rem, 2vw, 3rem);
+    @include heading-style;
+    line-height: 1;
+}
+
+@mixin h3 {
+    @include font-size-clamp(1.5rem, 1vw, 1.875rem);
+    @include heading-style;
+    line-height: 1;
+}
+
+@mixin h3-big {
+    @include font-size-clamp(1.875rem, 1vw, 2.25rem);
+    @include heading-style;
+    line-height: 1;
+}
+
+@mixin h4 {
+    @include font-size-clamp(1.125rem, 2vw, 1.5rem);
+    @include heading-style;
+    line-height: 1.15;
+}
+
+@mixin tagline {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--font-family-titles);
+    font-weight: var(--font-weight-base);
+    font-size: 1.125rem;
+    line-height: 1;
+    letter-spacing: var(--letter-spacing-base);
+
+    &:before {
+        content: '';
+        width: 1.5em;
+        height: 2px;
+        background-color: var(--color-primary);
+        margin-right: 0.5em;
+    }
+}
+
+@mixin intro-text {
+    font-size: 1.3125rem;
+
+    @include media-breakpoint-up(sm) {
+        font-size: 1.6875rem;
+    }
+}
+
+@mixin p {
+    font-size: 1rem;
+
+    @include media-breakpoint-up(sm) {
+        font-size: 1.3125rem;
+    }
+}

@@ -1,0 +1,12 @@
+@import "../abstracts.scss";
+
+.header-navbar {
+    position: relative;
+    z-index: 100;
+
+    > div {
+        position: fixed;
+        width: 100%;
+        visibility: hidden;
+    }
+}

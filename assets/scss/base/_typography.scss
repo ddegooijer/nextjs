@@ -1,0 +1,122 @@
+// Font gets imported in libraries.yml
+
+body {
+    @include p;
+    font-weight: var(--font-weight-base);
+    color: var(--color-text);
+    font-family: var(--font-family-base);
+    line-height: var(--line-height-base);
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: none;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+.virtual-h1 {
+    @include h1;
+    margin-bottom: 0.5em;
+}
+
+h2,
+.virtual-h2 {
+    @include h2;
+    margin-bottom: 0.75em;
+}
+
+h3,
+.virtual-h3 {
+    @include h3;
+    margin-bottom: 0.55em;
+}
+
+.virtual-h3-big {
+    @include h3-big;
+    margin-bottom: 0.55em;
+}
+
+h4,
+.virtual-h4 {
+    @include h4;
+    margin-bottom: 0.5em;
+}
+
+p {
+    margin-bottom: var(--paragraph-margin-bottom);
+}
+
+.tagline {
+    @include tagline;
+    margin-bottom: 0.2em;
+}
+
+.intro-text {
+    @include intro-text;
+
+    p {
+        font-size: 1em;
+    }
+}
+
+p,
+.virtual-p {
+    @include p;
+}
+
+a:not(.btn),
+button:not(.btn) {
+    color: var(--color-primary);
+    text-decoration: underline;
+    transition: var(--transition-hover);
+    text-underline-offset: 0.1em;
+
+    &:hover,
+    &:focus {
+        color: var(--color-primary-darker);
+    }
+
+    &.color-text {
+        color: var(--color-text);
+        text-decoration: none;
+
+        &:hover,
+        &:focus {
+            color: var(--color-primary);
+        }
+    }
+}
+
+
+
+ul {
+    list-style: none;
+    margin-bottom: var(--paragraph-margin-bottom);
+
+    li {
+        padding-left: 1em;
+        position: relative;
+
+        &:before {
+            @include icon($icon-name: 'plus', $icon-size: 0.5em);
+            position: absolute;
+            top: 0.5em;
+            left: 0;
+        }
+    }
+
+    &.list-arrows {
+        @include list-arrows;
+    }
+}
+
+blockquote {
+    @include font-size-clamp(1.6875rem, 5vw, 2.25rem);
+    font-weight: var(--font-weight-light);
+    font-style: italic;
+    line-height: 1.166;
+    margin-bottom: var(--paragraph-margin-bottom);
+    letter-spacing: -1px;
+}
+
+small {
+    font-size: 0.75em;
+}

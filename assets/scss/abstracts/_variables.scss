@@ -1,0 +1,112 @@
+/**
+ * Put all variables here that are necessary for this project
+ * Group colors by starting their names with "color-"
+ */
+:root {
+    // Font weights
+    --font-weight-light:     300;
+    --font-weight-normal:    400;
+    --font-weight-bold:      700;
+    --font-weight-base:      var(--font-weight-normal);
+
+    // Fonts
+    --font-family-base:    'Barlow', Arial, sans-serif;
+    --font-family-titles:  'Bebas Neue', Arial, sans-serif;
+    --line-height-base:    1.4;
+    --letter-spacing-base: 1px;
+
+    // Colors
+    --color-primary:                #EE8031;
+    --color-primary-rgb:            238,128,49;
+    --color-primary-darker:         #CE681F;
+    --color-gray:                   #CECECE;
+    --color-white:                  #FFFFFF;
+    --color-white-rgb:              250,250,250;
+    --color-text:                   #00212D;
+    --color-text-rgb:               0,33,45;
+    --color-disabled:               var(--color-gray);
+    --color-background:             var(--color-text);
+    --color-background-rgb:         var(--color-text-rgb);
+    --color-background-light:       #F5F7FB;
+
+    // Transitions
+    --transition-hover: all 0.1s ease-in-out;
+
+    // Button styling
+    --btn-font-size:     1rem;
+    --btn-font-family:   var(--font-family-base);
+    --btn-font-weight:   var(--font-weight-bold);
+    --btn-color:         var(--color-white);
+    --btn-line-height:   1.625;
+    --btn-padding-y:     0.6em;
+    --btn-padding-x:     0.6em;
+    --btn-border-radius: 0;
+    --btn-transition:    color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    --btn-border-width:  1px;
+    --btn-focus-width:   0.25rem;
+
+    // Input styling
+    --input-font-family:        var(--font-family-base);
+    --input-padding-y:           0.5em;
+    --input-padding-x:           1rem;
+    --input-border-width:        1px;
+    --input-height-border:       var(--input-border-width * 2);
+    --input-line-height:         var(--line-height-base);
+    --input-border-color:        var(--color-gray);
+    --input-border-radius:       0;
+    --input-font-size:           1em;
+    --input-color:               var(--color-text);
+    --input-placeholder-color:   var(--color-text);
+    --checkbox-size:             1.3125em;
+    --checkbox-padding:          calc(var(--checkbox-size) + 0.5em);
+    --radio-size:                1rem;
+    --radio-padding:             calc(var(--checkbox-size) + 0.5em);
+    --input-bg:                  transparent;
+
+    // Margins/Paddings
+    --paragraph-margin-bottom:   2rem;
+
+    // Menu toggle
+    --menu-toggle-line-height:          2px;
+    --menu-toggle-line-width:           21px;
+    --menu-toggle-line-space:           4px;
+    --menu-toggle-line-border-radius:   5px;
+    --menu-toggle-line-color:           var(--color-text);
+    --menu-toggle-width:                3rem;
+
+    // Animations
+    --animation-image-slide-in-distance:            200px;
+    --animation-image-slide-in-distance-negative:  calc(-1 * var(--animation-image-slide-in-distance));
+}
+
+// Bootstrap grid
+$grid-breakpoints: (
+        xs: 0,
+        sm: 576px,
+        md: 768px,
+        lg: 992px,
+        xl: 1200px,
+        xxl: 1380px
+);
+$container-max-widths: (
+        sm: 540px,
+        md: 720px,
+        lg: 960px,
+        xl: 1140px,
+        xxl: 1320px
+);
+
+$spacer: 1rem;
+$spacers: (
+        0: 0,
+        1: $spacer * .25,
+        2: $spacer * .5,
+        3: $spacer,
+        4: $spacer * 1.5,
+        5: $spacer * 2,
+        6: $spacer * 3,
+);
+
+$grid-gutter-width: 3rem;
+
+$btn-focus-width: var(--btn-focus-width);
